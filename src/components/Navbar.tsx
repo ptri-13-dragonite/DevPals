@@ -1,8 +1,17 @@
+import Link from 'next/link';
 import React from 'react';
 
 function Navbar() {
   return (
     <div className="navbar bg-base-100">
+      <div className="join">
+        <Link href="/dashboard">
+          <input className="join-item btn" type="radio" name="options" aria-label="Dashboard" />
+        </Link>
+        <Link href="/pal">
+          <input className="join-item btn" type="radio" name="options" aria-label="DevPal" />
+        </Link>
+      </div>
       <div className="flex-1">
         <a href="/" className="btn btn-ghost text-xl">daisyUI</a>
       </div>
