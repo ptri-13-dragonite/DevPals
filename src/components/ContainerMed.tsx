@@ -6,7 +6,7 @@ interface ContainerMediumProps {
 
 function ContainerMedium({ children }: ContainerMediumProps): JSX.Element {
   return (
-    <div className="artboard phone-1">
+    <div className="w-full bg-base-100 p-4 shadow-xl">
       {children}
     </div>
   );
