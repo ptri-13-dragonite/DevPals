@@ -35,6 +35,9 @@ body {
   }
 }
 
+.font-montserrat {
+  font-family: 'Montserrat', sans-serif !important;
+}
 /* styles/globals.css */
 
 /* Montserrat */
