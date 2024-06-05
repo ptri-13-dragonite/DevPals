@@ -8,33 +8,36 @@ import GitHubStats from '@/components/GitHub/GitHubStats';
 
 function Dashboard(): JSX.Element {
   return (
-    <div className="container mx-auto p-4">
-      <div className="grid grid-rows-3 gap-4">
-        <ContainerMedium>
-          <div className="flex flex-col lg:flex-row w-full gap-4">
-            <div className="card bg-base-300 rounded-box p-4">
+    <div className="min-h-screen p-4 bg-base-100">
+      <div className="grid grid-rows-3 gap-6">
+        {/* LinkedIn Section */}
+        <div className="w-full p-4 bg-base-100">
+          <div className="container mx-auto flex flex-col lg:flex-row w-full p-4 gap-4 bg-base-300 rounded-2xl">
+            <div className="card bg-accent rounded-box p-4 flex-grow">
               <LinkedInCard />
             </div>
             <div className="divider lg:divider-horizontal" />
-            <div className="card bg-base-300 rounded-box p-4">
+            <div className="card bg-base-100 rounded-box p-4 bg-primary flex-grow">
               <LinkedInStats />
             </div>
           </div>
-        </ContainerMedium>
-        <ContainerMedium>
-          <div className="flex flex-col lg:flex-row w-full gap-4">
-            <div className="card bg-base-300 rounded-box p-4">
+        </div>
+        {/* Leetcode Section */}
+        <div className="w-full p-4 bg-base-100">
+          <div className="container mx-auto flex flex-col lg:flex-row w-full p-4 gap-4 bg-base-300 rounded-2xl">
+            <div className="card bg-base-100 rounded-box p-4 bg-secondary flex-grow">
               <LeetCodeStats />
             </div>
             <div className="divider lg:divider-horizontal" />
-            <div className="card bg-base-300 rounded-box p-4">
+            <div className="card bg-base-100 rounded-box p-4 flex-grow">
               <LeetCodeDailyProblem />
             </div>
           </div>
-        </ContainerMedium>
-        <ContainerMedium>
+        </div>
+        {/* GitHub Section */}
+        <div className="w-full p-4 bg-base-100">
           <GitHubStats />
-        </ContainerMedium>
+        </div>
       </div>
     </div>
   );

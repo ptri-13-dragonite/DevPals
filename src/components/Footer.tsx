@@ -60,7 +60,7 @@ function Footer() {
               color: '#333333',
             }}
           >
-            Discover a new way to stay motivated and focused on your job search journey with Resumates. Let your virtual pet be your ultimate job search mate, keeping you company and cheering you on every step of the way.
+            Discover a new way to stay motivated and focused on your job search journey with DevPals. Let your virtual pal be your ultimate job search mate, keeping you company and cheering you on every step of the way.
           </p>
         </div>
         <Link href="/login" className="btn bg-base-100 border-primary text-primary" style={{ fontFamily: 'Montserrat', fontSize: 'var(--font-sizeH6)', fontWeight: '400', lineHeight: '28px', borderWidth: '1px' }}>
