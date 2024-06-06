@@ -31,6 +31,13 @@ const createTables = async () => {
       role VARCHAR(50) NOT NULL
     );`;
 
+    const leetCodeUserTable: string = `CREATE TABLE IF NOT EXISTS leetCodeUsers (
+      leetcode_user_id SERIAL PRIMARY KEY,
+      user_id INTEGER NOT NULL,
+      username VARCHAR(30) UNIQUE NOT NULL,
+      FOREIGN KEY (user_id) REFERENCES users(id)
+    );`;
+
     const leetCodeTable: string = `CREATE TABLE IF NOT EXISTS leetCodeSubmissions (
       submission_id SERIAL PRIMARY KEY,
       user_id INTEGER NOT NULL,

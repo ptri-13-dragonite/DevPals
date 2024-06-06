@@ -10,13 +10,28 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
     //typescript can infer the type from the reponse to avoid declaring
     const parsedResult = await result.json();
 
-    const dailyProblemLink: string = parsedResult.questionLink;
+    const {
+      questionTitle,
+      questionLink,
+      difficulty,
+      topicTags,
+    }: {
+      questionTitle: string;
+      questionLink: string;
+      difficulty: string;
+      topicTags: Array<{
+        name: string;
+        slug: string;
+        translatedName: string | null;
+      }>;
+    } = parsedResult;
+    const tags: Array<string> = topicTags.map((tag) => tag.name);
 
     return NextResponse.json(
       {
         success: true,
         message: "Leetcode Daily Problem fetched successfully",
-        data: dailyProblemLink,
+        data: { questionTitle, questionLink, difficulty, tags },
       },
       { status: 200 }
     );

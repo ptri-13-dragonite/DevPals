@@ -60,16 +60,6 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
       }
     }
 
-    if (upsertQueryParams.length === 0) {
-      return NextResponse.json(
-        {
-          success: true,
-          message: "No updates needed.",
-        },
-        { status: 200 }
-      );
-    }
-
     const upsertQuery = `
       INSERT INTO leetCodeSubmissions (user_id, submission_date, accepted_submissions)
       VALUES ${upsertQueryParams.join(", ")}
@@ -78,12 +68,38 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
         accepted_submissions = EXCLUDED.accepted_submissions;
     `;
 
-    await query(upsertQuery, queryParams);
+    let responseMessage = "Leetcode Submission Calendar updated in db.";
+
+    if (upsertQueryParams.length === 0) {
+      responseMessage = "No updates needed.";
+    } else {
+      await query(upsertQuery, queryParams);
+    }
+
+    const rolling30Query = `
+      SELECT SUM(accepted_submissions) AS rolling30
+      FROM leetCodeSubmissions
+      WHERE CAST(submission_date AS BIGINT) >= EXTRACT(EPOCH FROM CURRENT_DATE - INTERVAL '30 days');`;
+
+    const prevRolling30Query = `
+      SELECT SUM(accepted_submissions) AS prevRolling30
+      FROM leetCodeSubmissions
+      WHERE CAST(submission_date AS BIGINT) < EXTRACT(EPOCH FROM CURRENT_DATE - INTERVAL '30 days')
+      AND CAST(submission_date AS BIGINT) >= EXTRACT(EPOCH FROM CURRENT_DATE - INTERVAL '60 days');`;
+
+    let rolling30 = 0;
+    const rolling30Result = await query(rolling30Query);
+    rolling30 = rolling30Result.rows[0].rolling30;
+
+    let prevRolling30 = 0;
+    const prevRolling30Result = await query(prevRolling30Query);
+    prevRolling30 = prevRolling30Result.rows[0]?.prevrolling30;
 
     return NextResponse.json(
       {
         success: true,
-        message: "Leetcode Submission Calendar updated in db.",
+        message: responseMessage,
+        data: { rolling30, prevRolling30 },
       },
       { status: 200 }
     );
