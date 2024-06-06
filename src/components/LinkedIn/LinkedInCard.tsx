@@ -9,15 +9,14 @@ function LinkedInCard() {
         <figure className="rounded-t-lg overflow-hidden">
           <Image src="/images/LinkedIn_logo.png" alt="LinkedIn Logo" width={928} height={548} />
         </figure>
-        <div className="card-body">
-          <h2 className="card-title">
+        <div className="card-body" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+          <h2 className="card-title" style={{ fontFamily: 'Montserrat, sans-serif' }}>
             Grow your Network!
-            <div className="badge badge-secondary">NEW</div>
           </h2>
           <p>Your network is your networth</p>
           <div className="card-actions justify-end">
-            <div className="badge badge-outline">Insert Num of Connections</div>
-            <div className="badge badge-outline">Insert</div>
+            <div className="badge badge-outline" style={{ fontFamily: 'Montserrat, sans-serif' }}>Num of Connections</div>
+            <div className="badge badge-outline" style={{ fontFamily: 'Montserrat, sans-serif' }}>Insert</div>
           </div>
         </div>
       </a>

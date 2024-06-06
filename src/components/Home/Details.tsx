@@ -58,7 +58,7 @@ function Details() {
           </div>
         </div>
         <div
-          className="bg-primary rounded-2xl flex items-start justify-start p-14"
+          className="bg-base-content rounded-2xl flex items-start justify-start p-14"
           style={{
             width: '608px',
             height: '768px',

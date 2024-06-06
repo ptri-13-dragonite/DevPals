@@ -12,7 +12,6 @@ function LeetCodeDailyProblem() {
         <div className="card-body">
           <h2 className="card-title">
             LeetCode Daily Challenge!
-            <div className="badge badge-secondary">NEW</div>
           </h2>
           <p>Insert LeetCode Problem Text here</p>
           <div className="card-actions justify-end">
