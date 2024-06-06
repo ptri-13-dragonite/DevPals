@@ -7,7 +7,6 @@ console.log("* Creating Postgres tables from schemas");
 
 // User interface to be specified on account creation
 interface User {
-  
   id: number;
   name: string;
   username: string;
