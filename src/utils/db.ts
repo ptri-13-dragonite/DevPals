@@ -1,12 +1,14 @@
 // import pg package and destrucutre Pool class - manages pool of client connections
-import { Pool } from "pg";
+const { Pool, Client } = require("pg");
+// const dotenv = require("dotenv");
+
+// dotenv.config({ path: "../../env.local" });
 
 console.log("* Accessing db");
 
 // Log environment variables for debugging
 console.log("DATABASE_HOST:", process.env.DATABASE_HOST);
 console.log("DATABASE_PORT:", process.env.DATABASE_PORT);
-console.log("DATABASE_NAME:", process.env.DATABASE_NAME);
 console.log("DATABASE_USER:", process.env.DATABASE_USER);
 console.log("DATABASE_PASSWORD:", process.env.DATABASE_PASSWORD);
 
@@ -24,7 +26,7 @@ const pool = new Pool({
 });
 
 // Attempt to connect to the database
-pool.connect((err, client, release) => {
+pool.connect((err: Error, client: typeof Client, release: () => void) => {
   console.log(" - Inside pool.connect callback");
   if (err) {
     console.error(" - Error connecting to the database:", err);
