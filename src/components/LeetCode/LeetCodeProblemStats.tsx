@@ -3,7 +3,6 @@ import React from 'react';
 function LeetCodeProblemStats() {
   return (
     <div className="stats shadow">
-
       <div className="stat">
         <div className="stat-figure text-secondary">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="size-8">
@@ -14,7 +13,6 @@ function LeetCodeProblemStats() {
         <div className="stat-value" style={{ fontFamily: 'Montserrat, sans-serif' }}>Num</div>
         <div className="stat-desc" style={{ fontFamily: 'Montserrat, sans-serif' }}>??</div>
       </div>
-
       <div className="stat">
         <div className="stat-figure text-secondary">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="size-8">
@@ -25,7 +23,6 @@ function LeetCodeProblemStats() {
         <div className="stat-value" style={{ fontFamily: 'Montserrat, sans-serif' }}>Num</div>
         <div className="stat-desc" style={{ fontFamily: 'Montserrat, sans-serif' }}>??</div>
       </div>
-
       <div className="stat">
         <div className="stat-figure text-secondary">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="size-8">
@@ -36,7 +33,6 @@ function LeetCodeProblemStats() {
         <div className="stat-value" style={{ fontFamily: 'Montserrat, sans-serif' }}>Num</div>
         <div className="stat-desc" style={{ fontFamily: 'Montserrat, sans-serif' }}>??</div>
       </div>
-
     </div>
   );
 }
