@@ -18,8 +18,18 @@ const config: Config = {
   // eslint-disable-next-line global-require
   plugins: [require('daisyui')],
   daisyui: {
-    // This is where we can customize the daisy UI themes.
-    themes: [],
+    themes: [
+      {
+        mytheme: {
+          primary: '#4C5B92',
+          secondary: '#45BAC2',
+          accent: '#7C5BFF',
+          letter: '#333333',
+          'base-100': '#FAFAFA',
+          neutral: '#EFEFEF',
+        },
+      },
+    ],
   },
 };
 export default config;

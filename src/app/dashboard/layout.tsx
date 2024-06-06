@@ -9,6 +9,12 @@ interface DashboardLayout {
 function DashboardLayout({ children }: DashboardLayout): JSX.Element {
   return (
     <div>
+      <div>
+        <h1 style={{ fontFamily: 'Montserrat, sans-serif' }}>Hello, World!</h1>
+        <p style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+          This is a paragraph using the Space Grotesk font.
+        </p>
+      </div>
       <Navbar />
       <main>
         { children }
