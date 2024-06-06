@@ -19,12 +19,12 @@ export default function Home() {
   }
 
   return (
-    
+
     <div>
       <div>
-      <p> Not Signed in</p>
-      <button className="bg-none border-gray-300 border py-2 px-6 rounded-md mb-2" type="button" onClick={() => signIn('github')}>Sign in with github</button>
-    </div>
+        <p> Not Signed in</p>
+        <button className="bg-none border-gray-300 border py-2 px-6 rounded-md mb-2" type="button" onClick={() => signIn('github')}>Sign in with github</button>
+      </div>
       <Navbar2 />
       <Intro />
       <Details />
