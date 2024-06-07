@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import React from 'react';
-import { AuthProvider } from '@/hooks/useAuth';
+// import { AuthProvider } from '@/hooks/useAuth';
+import { LeetCodeProvider } from '@/components/LeetCodeContext';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -15,9 +16,11 @@ export default function RootLayout({ children }: {children: React.ReactNode }): 
         <title>DevPals</title>
       </head>
       <body>
-        <AuthProvider>
+        {/* <AuthProvider> */}
+        <LeetCodeProvider>
           {children}
-        </AuthProvider>
+        </LeetCodeProvider>
+        {/* </AuthProvider> */}
       </body>
     </html>
   );

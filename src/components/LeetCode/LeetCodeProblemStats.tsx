@@ -1,6 +1,23 @@
-import React from 'react';
+'use client';
 
-function LeetCodeProblemStats() {
+import React from 'react';
+import { useLeetCode } from '@/components/LeetCodeContext'; // Adjust the path accordingly
+
+function LeetCodeProblemStats(): JSX.Element {
+  const { leetCodeContext, isLoading } = useLeetCode();
+
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
+
+  if (!leetCodeContext) {
+    return <p>Failed to load LeetCode stats.</p>;
+  }
+
+  const {
+    easySolved, mediumSolved, hardSolved, totalEasy, totalMedium, totalHard,
+  } = leetCodeContext;
+
   return (
     <div className="stats shadow">
       <div className="stat">
@@ -10,8 +27,13 @@ function LeetCodeProblemStats() {
           </svg>
         </div>
         <div className="stat-title" style={{ fontFamily: 'Montserrat, sans-serif' }}>Easy</div>
-        <div className="stat-value" style={{ fontFamily: 'Montserrat, sans-serif' }}>Num</div>
-        <div className="stat-desc" style={{ fontFamily: 'Montserrat, sans-serif' }}>??</div>
+        <div className="stat-value" style={{ fontFamily: 'Montserrat, sans-serif' }}>{easySolved}</div>
+        <div className="stat-desc" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+          Acceptance Rate:
+          {' '}
+          {((easySolved / totalEasy) * 100).toFixed(0)}
+          %
+        </div>
       </div>
       <div className="stat">
         <div className="stat-figure text-secondary">
@@ -20,8 +42,13 @@ function LeetCodeProblemStats() {
           </svg>
         </div>
         <div className="stat-title" style={{ fontFamily: 'Montserrat, sans-serif' }}>Medium</div>
-        <div className="stat-value" style={{ fontFamily: 'Montserrat, sans-serif' }}>Num</div>
-        <div className="stat-desc" style={{ fontFamily: 'Montserrat, sans-serif' }}>??</div>
+        <div className="stat-value" style={{ fontFamily: 'Montserrat, sans-serif' }}>{mediumSolved}</div>
+        <div className="stat-desc" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+          Acceptance Rate:
+          {' '}
+          {((mediumSolved / totalMedium) * 100).toFixed(0)}
+          %
+        </div>
       </div>
       <div className="stat">
         <div className="stat-figure text-secondary">
@@ -30,8 +57,13 @@ function LeetCodeProblemStats() {
           </svg>
         </div>
         <div className="stat-title" style={{ fontFamily: 'Montserrat, sans-serif' }}>Hard</div>
-        <div className="stat-value" style={{ fontFamily: 'Montserrat, sans-serif' }}>Num</div>
-        <div className="stat-desc" style={{ fontFamily: 'Montserrat, sans-serif' }}>??</div>
+        <div className="stat-value" style={{ fontFamily: 'Montserrat, sans-serif' }}>{hardSolved}</div>
+        <div className="stat-desc" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+          Acceptance Rate:
+          {' '}
+          {((hardSolved / totalHard) * 100).toFixed(0)}
+          %
+        </div>
       </div>
     </div>
   );

@@ -42,7 +42,7 @@ export async function GET(req: NextRequest): Promise<NextResponse> {
         success: false,
         message: "Failed to fetch the LeetCode Daily Problem",
       },
-      { status: 200 }
+      { status: 500 }
     );
   }
 }

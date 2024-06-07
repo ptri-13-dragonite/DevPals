@@ -1,50 +1,57 @@
-import React, { useState, useEffect, createContext, useContext, ReactNode } from 'react';
-import { useRouter } from 'next/router';
+// 'use client';
 
-interface AuthContextType {
-  isAuthenticated: boolean;
-  isLoading: boolean;
-}
+// import React, { useState, useEffect, createContext, useContext, ReactNode } from 'react';
+// import { useRouter } from 'next/router';
 
-const AuthContext = createContext<AuthContextType>({ isAuthenticated: false, isLoading: true });
+// interface AuthContextType {
+//   isAuthenticated: boolean;
+//   isLoading: boolean;
+// }
 
-interface AuthProviderProps {
-  children: ReactNode;
-}
+// const AuthContext = createContext<AuthContextType>({ isAuthenticated: false, isLoading: true });
 
-function AuthProvider({ children }: AuthProviderProps): JSX.Element {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
-  const router = useRouter();
+// interface AuthProviderProps {
+//   children: ReactNode;
+// }
 
-  useEffect(() => {
-    const fetchAuthStatus = async () => {
-      try {
-        const response; // Replace with auth status endpoint??
-        if (!response.ok) {
-          throw new Error('Failed to fetch');
-        }
-        const data = await response.json();
-        setIsAuthenticated(data.isAuthenticated);
-      } catch (error) {
-        console.error('Failed to fetch authorization status of user', error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
+// function AuthProvider({ children }: AuthProviderProps): JSX.Element {
+//   const [isAuthenticated, setIsAuthenticated] = useState(false);
+//   const [isLoading, setIsLoading] = useState(true);
+//   const router = useRouter();
 
-    fetchAuthStatus();
-  }, [router]);
+//   useEffect(() => {
+//     // Only run fetchAuthStatus on client side
+//     const fetchAuthStatus = async () => {
+//       try {
+//         // Simulating an API call for auth status
+//         const response = await fetch('/api/auth/status'); // Replace with actual endpoint
+//         if (!response.ok) {
+//           throw new Error('Failed to fetch');
+//         }
+//         const data = await response.json();
+//         setIsAuthenticated(data.isAuthenticated);
+//       } catch (error) {
+//         console.error('Failed to fetch authorization status of user', error);
+//       } finally {
+//         setIsLoading(false);
+//       }
+//     };
 
-  return (
-    <AuthContext.Provider value={{ isAuthenticated, isLoading }}>
-      {children}
-    </AuthContext.Provider>
-  );
-}
+//     // Ensure this code only runs on the client
+//     if (typeof window !== 'undefined') {
+//       fetchAuthStatus();
+//     }
+//   }, [router]);
 
-function useAuth() {
-  return useContext(AuthContext);
-}
+//   return (
+//     <AuthContext.Provider value={{ isAuthenticated, isLoading }}>
+//       {children}
+//     </AuthContext.Provider>
+//   );
+// }
 
-export { useAuth, AuthProvider };
+// function useAuth() {
+//   return useContext(AuthContext);
+// }
+
+// export { useAuth, AuthProvider };

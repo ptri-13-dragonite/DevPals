@@ -1,9 +1,37 @@
-import React from 'react';
+'use client';
 
-function LeetCodeSubmissionStats() {
+import React from 'react';
+import { useLeetCode } from '@/components/LeetCodeContext'; // Adjust the path accordingly
+
+function LeetCodeSubmissionStats(): JSX.Element {
+  const { leetCodeContext, isLoading } = useLeetCode();
+
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
+
+  if (!leetCodeContext) {
+    return <p>Failed to load LeetCode stats.</p>;
+  }
+
+  const {
+    ranking, recentSubmission, prevRolling30, rolling30,
+  } = leetCodeContext;
+  const { timestamp } = recentSubmission;
+
+  function formatTimestampToMMDD(timestamp: string) {
+    const date = new Date(timestamp);
+    const month = (date.getUTCMonth() + 1).toString().padStart(2, '0');
+    const day = date.getUTCDate().toString().padStart(2, '0');
+    const year = date.getUTCFullYear().toString().slice(-2);
+
+    return `${month}/${day}/${year}`;
+  }
+
+  const lastSubmission = formatTimestampToMMDD(timestamp);
+
   return (
     <div className="stats shadow">
-
       <div className="stat">
         <div className="stat-figure text-secondary">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" className="size-8">
@@ -11,8 +39,11 @@ function LeetCodeSubmissionStats() {
           </svg>
         </div>
         <div className="stat-title" style={{ fontFamily: 'Montserrat, sans-serif' }}>Submissions this month</div>
-        <div className="stat-value" style={{ fontFamily: 'Montserrat, sans-serif' }}>Num</div>
-        <div className="stat-desc" style={{ fontFamily: 'Montserrat, sans-serif' }}>Jan 1st - Feb 1st</div>
+        <div className="stat-value" style={{ fontFamily: 'Montserrat, sans-serif' }}>{rolling30}</div>
+        <div className="stat-desc" style={{ fontFamily: 'Montserrat, sans-serif' }}>
+          Submissions Last Month:
+          {prevRolling30}
+        </div>
       </div>
 
       <div className="stat">
@@ -22,8 +53,8 @@ function LeetCodeSubmissionStats() {
           </svg>
         </div>
         <div className="stat-title" style={{ fontFamily: 'Montserrat, sans-serif' }}>Last Submission</div>
-        <div className="stat-value" style={{ fontFamily: 'Montserrat, sans-serif' }}>Date</div>
-        <div className="stat-desc" style={{ fontFamily: 'Montserrat, sans-serif' }}>Problem</div>
+        <div className="stat-value" style={{ fontFamily: 'Montserrat, sans-serif' }}>{lastSubmission}</div>
+        <div className="stat-desc" style={{ fontFamily: 'Montserrat, sans-serif' }}>{recentSubmission.title}</div>
       </div>
 
       <div className="stat">
@@ -33,10 +64,9 @@ function LeetCodeSubmissionStats() {
           </svg>
         </div>
         <div className="stat-title" style={{ fontFamily: 'Montserrat, sans-serif' }}>Ranking</div>
-        <div className="stat-value" style={{ fontFamily: 'Montserrat, sans-serif' }}>Num</div>
-        <div className="stat-desc" style={{ fontFamily: 'Montserrat, sans-serif' }}>↘︎ 90 (14%)</div>
+        <div className="stat-value" style={{ fontFamily: 'Montserrat, sans-serif' }}>{ranking}</div>
+        <div className="stat-desc" style={{ fontFamily: 'Montserrat, sans-serif' }}>↘︎ 11 (2%)</div>
       </div>
-
     </div>
   );
 }
