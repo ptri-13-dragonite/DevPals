@@ -1,15 +1,19 @@
 'use client';
 
 import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 function LoginInput() {
   const [selectedPet, setSelectedPet] = useState('racoon');
+  const router = useRouter();
 
   const handleLogin = () => {
     // STORE PET IN LOCAL STORAGE
     localStorage.setItem('selectedPet', selectedPet);
     // CONSOLE LOG
     console.log('User logged in and selected pet:', selectedPet);
+    // NAVIGATE TO DASHBOARD
+    router.push('/dashboard');
   };
 
   return (
