@@ -9,9 +9,10 @@ console.log("* Creating Postgres tables from schemas");
 interface User {
   id: number;
   name: string;
-  username: string;
-  password: string;
   role: string;
+  githubUsername: string;
+  leetcodeUsername: string;
+  pet: string;
 }
 
 interface Post {
@@ -26,16 +27,10 @@ const createTables = async () => {
     const userTable: string = `CREATE TABLE IF NOT EXISTS users (
       id SERIAL PRIMARY KEY,
       name VARCHAR(60) NOT NULL,
-      username VARCHAR(30) UNIQUE NOT NULL,
-      password VARCHAR(100) NOT NULL,
       role VARCHAR(50) NOT NULL
-    );`;
-
-    const leetCodeUserTable: string = `CREATE TABLE IF NOT EXISTS leetCodeUsers (
-      leetcode_user_id SERIAL PRIMARY KEY,
-      user_id INTEGER NOT NULL,
-      username VARCHAR(30) UNIQUE NOT NULL,
-      FOREIGN KEY (user_id) REFERENCES users(id)
+      githubUsername VARCHAR(30) UNIQUE NOT NULL,
+      leetcodeUsername VARCHAR(30) UNIQUE NOT NULL,
+      pet VARCHAR(100) NOT NULL,
     );`;
 
     const leetCodeTable: string = `CREATE TABLE IF NOT EXISTS leetCodeSubmissions (
