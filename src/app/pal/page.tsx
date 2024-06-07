@@ -48,8 +48,13 @@ export default function Pal() {
 
   return (
     <main style={{ width: '100vw', height: '100vh', position: 'relative' }}>
-      <h1 style={{ position: 'absolute', top: '20px', left: '20px', color: 'white' }}>PalEnv</h1>
-      <Spline 
+      <h1 style={{
+        position: 'absolute', top: '20px', left: '20px', color: 'white',
+      }}
+      >
+        PalEnv
+      </h1>
+      <Spline
         scene={activeScene}
         onLoad={handleLoad}
         onError={handleError}

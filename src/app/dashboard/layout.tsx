@@ -1,7 +1,6 @@
 import React from 'react';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
-import Navbar2 from '@/components/NavBar2';
+import Footer from '@/components/Footers/Footer';
+import NavbarDash from '@/components/Navbars/NavbarDash';
 
 interface DashboardLayout {
     children: React.ReactNode;
@@ -10,7 +9,7 @@ interface DashboardLayout {
 function DashboardLayout({ children }: DashboardLayout): JSX.Element {
   return (
     <div>
-      <Navbar2 />
+      <NavbarDash />
       <main>
         { children }
       </main>
