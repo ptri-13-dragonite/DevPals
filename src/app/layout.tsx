@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import React from 'react';
 // import { AuthProvider } from '@/hooks/useAuth';
-import { LeetCodeProvider } from '@/components/LeetCodeContext';
+import { LeetCodeProvider } from '@/context/LeetCodeContext';
 import './globals.css';
 
 export const metadata: Metadata = {

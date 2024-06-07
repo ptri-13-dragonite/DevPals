@@ -1,6 +1,6 @@
 import React from 'react';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
+import NavbarPal from '@/components/Navbars/NavbarPal';
+import Footer from '@/components/Footers/Footer';
 
 interface PalLayout {
     children: React.ReactNode;
@@ -9,7 +9,7 @@ interface PalLayout {
 function PalLayout({ children }: PalLayout): JSX.Element {
   return (
     <div>
-      <Navbar />
+      <NavbarPal />
       <main>
         { children }
       </main>

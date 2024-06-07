@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { useLeetCode } from '@/components/LeetCodeContext'; // Adjust the path accordingly
+import { useLeetCode } from '@/context/LeetCodeContext'; // Adjust the path accordingly
 
 function LeetCodeProblemStats(): JSX.Element {
   const { leetCodeContext, isLoading } = useLeetCode();
