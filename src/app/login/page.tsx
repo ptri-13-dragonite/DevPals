@@ -1,23 +1,21 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import LoginInput from '@/components/LoginInput';
 import Oauth from '@/components/Oauth';
-import { useEffect, useState} from 'react';
 import { useSession, signIn, signOut } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
 
 function Login() {
-  // const { data: session } = useSession();
-  // const [userData, setUserData] = useState(null);
-  // console.log('login page', session);
-  // useEffect(() => {
-  //   if (session?.accessToken) {
-  //     console.log('user had token', session.accessToken);
-      
-  //   }
+  const { data: session } = useSession();
+  const router = useRouter();
 
-  // },[session]);
-  
+  useEffect(() => {
+    if (session) {
+      router.push('/dashboard');
+    }
+  }, [session, router]);
+
   return (
     <div className="min-h-screen bg-base-200 flex flex-col justify-center items-center">
       <h1 className="text-3xl mb-6">Sign up / Login</h1>
@@ -28,7 +26,7 @@ function Login() {
         <Oauth />
       </div>
     </div>
-    
+
   );
 }
 
