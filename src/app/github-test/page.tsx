@@ -33,7 +33,7 @@ function Page() {
         }
 
         const data = await response.json();
-        console.log('use data object ->', data);
+        console.log('User data from GitHub API  ->', data);
         setUserData(data);
         setError(null);
       } catch (err) {
@@ -58,6 +58,7 @@ function Page() {
         }
 
         const reposData = await reposResponse.json();
+        console.log('Users Repos -->', reposData);
         setRepos(reposData);
 
         // Fetch commits for each repo
@@ -83,7 +84,9 @@ function Page() {
         }
 
         setCommits(commitsData);
+        console.log('User Repos and Commits ->', commitsData);
         setTotalCommits(totalCommitsCount);
+        console.log('User total commits on public repos -->', totalCommitsCount);
         setError(null);
       } catch (err) {
         setError(err.message);
