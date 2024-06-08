@@ -9,6 +9,10 @@ import GitHubStats from '@/components/GitHub/GitHubStats';
 import SkeletonLoaderStats from '@/components/SkeletonLoaderStats';
 import { LeetCodeProvider, useLeetCode } from '@/context/LeetCodeContext';
 
+import { useSession, signIn, signOut } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
+
+
 async function fetchData(setLeetCodeContext, setIsLoading) {
   try {
     const responseSubmissions = await fetch('/api/leetCode/Submissions');
@@ -37,6 +41,10 @@ async function fetchData(setLeetCodeContext, setIsLoading) {
 
 function Dashboard(): JSX.Element {
   const { setLeetCodeContext, isLoading, setIsLoading } = useLeetCode();
+
+  const { data: session } = useSession();
+  console.log('session obj ->', session);
+  // console.log('token ->', session.accessToken);
 
   useEffect(() => {
     fetchData(setLeetCodeContext, setIsLoading);
