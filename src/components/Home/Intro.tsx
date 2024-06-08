@@ -60,7 +60,7 @@ function Intro() {
                 color: '#FAFAFA',
               }}
             >
-              Boost Your Job Search with
+              Boost Your Job Skills with
               {' '}
               <br />
               a Virtual Pal
@@ -84,10 +84,10 @@ function Intro() {
                 color: '#EFEFEF', // Text color
               }}
             >
-              Care for it by Solving Leetcode, Pushing Commits,
+              Care for it by Solving Leetcode Challenges, Contributing Code,
               {' '}
               <br />
-              and Applying for Jobs
+              and Networking
             </p>
           </div>
         </div>
