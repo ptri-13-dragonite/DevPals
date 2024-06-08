@@ -27,14 +27,15 @@ function Details() {
               className="text-left text-neutral"
               style={{
                 fontFamily: 'Montserrat',
-                fontSize: '48px',
+                fontSize: '40px',
                 fontWeight: '600',
                 lineHeight: '52.67px',
+                marginTop: '20px',
+
               }}
             >
-              Turn Your Job Search into
+              Turn Your Professional Development into
               {' '}
-              <br />
               an Engaging Relationship
             </p>
           </div>
@@ -74,8 +75,8 @@ function Details() {
               lineHeight: '40.83px',
             }}
           >
-            DevPals transforms your job search into an engaging and motivating experience by introducing a virtual pal that depends on your diligence for survival.
-            This unique approach encourages you to consistently solve leetcode problems, push commits, and apply to jobs.
+            DevPals transforms your career journey into an engaging and motivating experience by introducing a virtual pal that depends on your diligence for survival.
+            This unique approach encourages you to consistently solve leetcode challenges, contribute code, and network.
             As you care for your pal, you cultivate self-discipline and improvement, making your job preparation both productive and rewarding.
           </p>
         </div>

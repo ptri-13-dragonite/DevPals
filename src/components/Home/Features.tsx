@@ -78,7 +78,7 @@ function Features() {
               color: '#FAFAFA',
             }}
           >
-            Keep your pal alive by actively engaging in job search activities.
+            Keep your pal alive by actively engaging in career prep activities.
           </p>
         </div>
         <div
@@ -120,7 +120,7 @@ function Features() {
               color: '#FAFAFA',
             }}
           >
-            Regularly practice leetcode problems and submit applications to ensure steady progress.
+            Regularly practice leetcode challenges and contribute code to ensure steady progress.
           </p>
         </div>
         <div
