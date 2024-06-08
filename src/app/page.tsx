@@ -1,3 +1,5 @@
+'use client';
+
 import Navbar from '@/components/Navbars/Navbar';
 import Intro from '@/components/Home/Intro';
 import Details from '@/components/Home/Details';
@@ -7,6 +9,7 @@ import FooterLanding from '@/components/Footers/FooterLanding';
 
 export default function Home() {
   return (
+
     <div>
       <Navbar />
       <Intro />
