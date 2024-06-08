@@ -12,6 +12,8 @@ function Login() {
 
   useEffect(() => {
     if (session) {
+      console.log('session obj ->', session);
+      console.log('token ->', session.accessToken);
       router.push('/dashboard');
     }
   }, [session, router]);
