@@ -11,6 +11,7 @@
     "eslint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix"
   },
   "dependencies": {
+    "@splinetool/runtime": "^1.4.9",
     "autoprefixer": "^10.4.19",
     "daisyui": "^4.11.1",
     "dotenv": "^16.4.5",
@@ -18,9 +19,16 @@
     "pg": "^8.12.0",
     "psql": "^0.0.1",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "three": "^0.165.0"
   },
   "devDependencies": {
+    "@react-three/drei": "^9.106.0",
+    "@react-three/fiber": "^8.16.7",
+    "@splinetool/loader": "^1.4.9",
+    "@splinetool/r3f-spline": "^1.0.2",
+    "@splinetool/react-spline": "^3.1.0",
+    "@splinetool/runtime": "^1.4.9",
     "@types/node": "^20",
     "@types/pg": "^8.11.6",
     "@types/react": "^18",

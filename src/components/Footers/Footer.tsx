@@ -4,7 +4,7 @@ import Link from 'next/link';
 function Footer() {
   return (
     <div
-      className="flex flex-col items-left bg-base-100"
+      className="flex flex-col items-left bg-base-100 border-t-2 border-primary"
       style={{
         width: '100%',
         padding: '80px 120px 20px 120px',
@@ -60,11 +60,17 @@ function Footer() {
               color: '#333333',
             }}
           >
-            Discover a new way to stay motivated and focused on your job search journey with DevPals. Let your virtual pet be your ultimate job search mate, keeping you company and cheering you on every step of the way.
+            Discover a new way to stay motivated and focused on your job search journey with DevPals. Let your virtual pal be your ultimate job search mate, keeping you company and cheering you on every step of the way.
           </p>
         </div>
-        <Link href="/login" className="btn bg-base-100 border-primary text-primary" style={{ fontFamily: 'Montserrat', fontSize: 'var(--font-sizeH6)', fontWeight: '400', lineHeight: '28px', borderWidth: '1px' }}>
-          Pick a Pal
+        <Link
+          href="/pal"
+          className="btn bg-base-100 border-primary text-primary"
+          style={{
+            fontFamily: 'Montserrat', fontSize: 'var(--font-sizeH6)', fontWeight: '400', lineHeight: '28px', borderWidth: '1px',
+          }}
+        >
+          View Pal
         </Link>
       </div>
       <div

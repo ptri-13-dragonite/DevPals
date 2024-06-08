@@ -1,24 +1,22 @@
 'use client';
 
-import Image from 'next/image';
-import ContainerMedium from '@/components/ContainerMed';
-import Navbar2 from '@/components/NavBar2';
+import Navbar from '@/components/Navbars/Navbar';
 import Intro from '@/components/Home/Intro';
 import Details from '@/components/Home/Details';
 import Features from '@/components/Home/Features';
 import ChoosePal from '@/components/Home/ChoosePal';
-import Footer from '@/components/Footer';
+import FooterLanding from '@/components/Footers/FooterLanding';
 
 export default function Home() {
   return (
 
     <div>
-      <Navbar2 />
+      <Navbar />
       <Intro />
       <Details />
       <Features />
       <ChoosePal />
-      <Footer />
+      <FooterLanding />
     </div>
   );
 }
